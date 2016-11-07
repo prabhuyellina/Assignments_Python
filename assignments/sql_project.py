@@ -53,6 +53,7 @@ class mysql:
         except MySQLdb.Error as e:
             print e
             logging.debug('Error near select call')
+            self.select(Table_name, col_name, val, All_coloums)
 
     def insert(self,Table_name, data):
         logging.debug('In Insert Function')
@@ -65,6 +66,7 @@ class mysql:
         except MySQLdb.Error as e:
             print e
             logging.debug('Error near Insert function')
+            self.insert(Table_name, data)
 
     def update(self,Table_name, data):
         logging.debug('In Update function')
@@ -76,6 +78,7 @@ class mysql:
         except MySQLdb.Error as e:
             print e
         logging.debug('Error near update function')
+        self.update(Table_name, data)
 
 #data = {"id": 6, "name": "Prem", "salary": 3622, "age": 32}
 obj=mysql()
